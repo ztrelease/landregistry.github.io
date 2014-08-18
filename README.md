@@ -1,4 +1,4 @@
 The Land Registry Github
 ========================
 
-See http://landregistry.github.io
+See http://www.landregistryconcept.co.uk
