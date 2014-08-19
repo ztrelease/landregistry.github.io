@@ -3,7 +3,7 @@ production:
     type: "system-of-record"
     github: "https://github.com/LandRegistry/system-of-record"
     heroku: "lr-system-of-record"
-    url: "lr-system-of-record.herokuapp.com/"
+    url: "http://lr-system-of-record.herokuapp.com/"
     port: 8000
     tech: [python, flask]
     dependencies: [postgres, the-feeder]
@@ -12,7 +12,7 @@ production:
     type: "mint"
     github: "https://github.com/LandRegistry/mint"
     heroku: "lr-mint"
-    url: "lr-mint.herokuapp.com/"
+    url: "http://lr-mint.herokuapp.com/"
     port: 8001
     tech: [python, flask]
     dependencies: [system-of-record]
@@ -21,7 +21,7 @@ production:
     type: "casework-service"
     github: "https://github.com/LandRegistry/casework-frontend"
     heroku: "lr-casework-frontend"
-    url: "casework.landregistryconcept.co.uk"
+    url: "http://casework.landregistryconcept.co.uk"
     port: 8004
     tech: [python, flask]
     dependencies: [mint]
@@ -30,7 +30,7 @@ production:
     type: "gov-service"
     github: "https://github.com/LandRegistry/property-frontend"
     heroku: "lr-property-frontend"
-    url: "www.gov.uk.landregistryconcept.co.uk"
+    url: "http://www.gov.uk.landregistryconcept.co.uk"
     port: 8002
     tech: [python, flask]
     dependencies: [search-api]
@@ -39,7 +39,7 @@ production:
     type: "land-service"
     github: "https://github.com/LandRegistry/service-frontend"
     heroku: "lr-service-frontend"
-    url: "lr-service-frontend.herokuapp.com"
+    url: "http://lr-service-frontend.herokuapp.com"
     port: 8007
     tech: [python, flask]
     dependencies: [search-api, postgres]
@@ -48,7 +48,7 @@ production:
     type: search-index
     github: "https://github.com/LandRegistry/search-api"
     heroku: "lr-search-api"
-    url: "lr-search-api.herokuapp.com"
+    url: "http://lr-search-api.herokuapp.com"
     port: 8003
     tech: [python, flask]
     dependencies: [elastic-search]
@@ -66,7 +66,7 @@ development:
   - name: "test-dashboard"
     github: "https://github.com/LandRegistry/test-dashboard"
     heroku: "lr-test-dashboard"
-    url: "lr-test-dashboard.herokuapp.com"
+    url: "http://lr-test-dashboard.herokuapp.com"
     port: 7357
     tech: [python flask]
     dependencies: [travis]
@@ -74,7 +74,7 @@ development:
   - name: "build-dashboard"
     github: "https://github.com/LandRegistry/build-dashboard"
     heroku: "lr-build-dashboard"
-    url: "lr-build-dashboard.herokuapp.com"
+    url: "http://lr-build-dashboard.herokuapp.com"
     port: 8888
     tech: [python flask]
     dependencies: [travis]
@@ -82,15 +82,15 @@ development:
   - name: "pull-dashboard"
     github: "https://github.com/LandRegistry/pull-dashboard"
     heroku: "lr-pull-dashboard"
-    url: "lr-pull-dashboard.herokuapp.com"
+    url: "http://lr-pull-dashboard.herokuapp.com"
     port: 8888
     tech: [python flask]
     dependencies: [github]
 
   - name: "team-dashboard"
     github: "https://github.com/LandRegistry/team-dashboard"
-    heroku: "lr-team-dashboard"
-    url: "team-dashboard.landregistryconcept.co.uk"
+    heroku: "http://lr-team-dashboard"
+    url: "http://team-dashboard.landregistryconcept.co.uk"
     port: 5000
     tech: [python flask]
     dependencies: []
