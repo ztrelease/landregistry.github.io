@@ -73,7 +73,7 @@ production:
 
   - name: "matching"
     type: "micro-service"
-    github: "https://github.com/LandRegistry/match"
+    github: "https://github.com/LandRegistry/matching"
     heroku: "lr-match"
     url:
     port:
