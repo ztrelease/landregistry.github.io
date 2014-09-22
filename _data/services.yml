@@ -42,7 +42,7 @@ production:
     url: "lr-service-frontend.herokuapp.com"
     port: 8007
     tech: [python, flask]
-    dependencies: [search-api, postgres]
+    dependencies: [search-api, postgres, decision, casework-frontend]
 
   - name: "search-api"
     type: search-index
@@ -62,13 +62,49 @@ production:
     tech: [python]
     dependencies: [redis, search-api]
 
+  - name: "decision"
+    type: "micro-service"
+    github: "https://github.com/LandRegistry/decision"
+    heroku: "lr-decision"
+    url:
+    port:
+    tech: [python]
+    dependencies: []
+
+  - name: "matching"
+    type: "micro-service"
+    github: "https://github.com/LandRegistry/match"
+    heroku: "lr-match"
+    url:
+    port:
+    tech: [python]
+    dependencies: [service-frontend]
+
+  - name: "ownership"
+    type: "micro-service"
+    github: "https://github.com/LandRegistry/ownership"
+    heroku: "lr-ownership"
+    url:
+    port:
+    tech: [python, flask]
+    dependencies: [service-frontend]
+
+  - name: "introductions"
+    type: "micro-service"
+    github: "https://github.com/LandRegistry/introductions"
+    heroku: "lr-introduction-service"
+    url:
+    port:
+    tech: [python, flask]
+    dependencies: []
+
 development:
   - name: "test-dashboard"
     github: "https://github.com/LandRegistry/test-dashboard"
     heroku: "lr-test-dashboard"
     url: "lr-test-dashboard.herokuapp.com"
     port: 7357
-    tech: [python flask]
+    tech: [python, flask]
     dependencies: [travis]
 
   - name: "build-dashboard"
@@ -76,7 +112,7 @@ development:
     heroku: "lr-build-dashboard"
     url: "lr-build-dashboard.herokuapp.com"
     port: 8888
-    tech: [python flask]
+    tech: [python, flask]
     dependencies: [travis]
 
   - name: "pull-dashboard"
@@ -84,7 +120,7 @@ development:
     heroku: "lr-pull-dashboard"
     url: "lr-pull-dashboard.herokuapp.com"
     port: 8888
-    tech: [python flask]
+    tech: [python, flask]
     dependencies: [github]
 
   - name: "team-dashboard"
@@ -92,5 +128,5 @@ development:
     heroku: "lr-team-dashboard"
     url: "team-dashboard.landregistryconcept.co.uk"
     port: 5000
-    tech: [python flask]
+    tech: [python, flask]
     dependencies: []
