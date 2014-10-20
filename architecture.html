@@ -34,6 +34,7 @@ title: Architecture
 
 <div class="jumbotron">
 <div class="container">
+  <h1>Architecture</h1>
   <p><a href="https://www.flickr.com/photos/psd/14303042970" title="Land Registry by Paul Downey, on Flickr"><img src="https://camo.githubusercontent.com/77637607d11a2943dbfa7f6e65d5745ed24798d4/68747470733a2f2f6661726d342e737461746963666c69636b722e636f6d2f333834312f31343330333034323937305f633562313438313931635f632e6a7067" width="800" height="500" alt="Land Registry" data-canonical-src="https://farm4.staticflickr.com/3841/14303042970_c5b148191c_c.jpg" style="max-width:100%;"></a></p>
 
 </div>
@@ -305,3 +306,45 @@ title: Architecture
     </div>
   </div>
 </div>
+
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-1">
+
+    <h1>Dashboards</h1>
+
+    <br>
+
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>Service name</th>
+        <th>Github</th>
+        <th>Heroku</th>
+        <th>URL</th>
+        <th>Port</th>
+        <th>Tech</th>
+        <th>Dependencies</th>
+      </tr>
+
+      {% for service in site.data.services.development %}
+        <tr>
+          <td>{{ service.name }}</td>
+          <td><a href="{{ service.github }}">{{ service.github }}</a></td>
+          <td>{{ service.heroku }}</td>
+          <td><a href="{{ service.url }}">{{ service.url }}</a></td>
+          <td>{{ service.port }}</td>
+          <td>
+            {% for tech in service.tech %}
+              {{ tech }} <br>
+            {% endfor %}
+          </td>
+          <td>
+            {% for dep in service.dependencies %}
+              {{ dep }} <br>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  </div>
