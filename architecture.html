@@ -3,252 +3,234 @@ layout: default
 title: Architecture
 permalink: /architecture/
 ---
-
 <style>
 
-  .link {
-    stroke: #ccc;
-  }
+.link {
+  stroke: #ccc;
+}
 
-  .node text {
-    pointer-events: none;
-    font: 10px sans-serif;
-  }
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+}
 
-  .ttip {
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    -moz-border-radius:3px;
-    border-radius: 3px;
-    border: 2px solid #DDD;
-    background: #fff;
-    opacity: 1;
-    color: #000;
-    padding: 10px;
-    width: 450px;
-    font-size: 15px;
-    z-index: 120;
-  }
+.ttip {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  -moz-border-radius:3px;
+  border-radius: 3px;
+  border: 2px solid #DDD;
+  background: #fff;
+  opacity: 1;
+  color: #000;
+  padding: 10px;
+  width: 450px;
+  font-size: 15px;
+  z-index: 120;
+}
 
 </style>
 
 <div class="jumbotron">
-  <div class="container">
-    <div class="col-md-12">
-      <h1>Architecture</h1>
-      <p><a href="https://www.flickr.com/photos/psd/14303042970" title="Land Registry by Paul Downey, on Flickr"><img src="https://camo.githubusercontent.com/77637607d11a2943dbfa7f6e65d5745ed24798d4/68747470733a2f2f6661726d342e737461746963666c69636b722e636f6d2f333834312f31343330333034323937305f633562313438313931635f632e6a7067" width="800" height="500" alt="Land Registry" data-canonical-src="https://farm4.staticflickr.com/3841/14303042970_c5b148191c_c.jpg" style="max-width:100%;"></a></p>
-    </div>
-  </div>
+  <h1>Architecture</h1>
+  <p><a href="https://www.flickr.com/photos/psd/14303042970" title="Land Registry by Paul Downey, on Flickr"><img src="https://camo.githubusercontent.com/77637607d11a2943dbfa7f6e65d5745ed24798d4/68747470733a2f2f6661726d342e737461746963666c69636b722e636f6d2f333834312f31343330333034323937305f633562313438313931635f632e6a7067" width="800" height="500" alt="Land Registry" data-canonical-src="https://farm4.staticflickr.com/3841/14303042970_c5b148191c_c.jpg" style="max-width:100%;"></a></p>
 </div>
 
-<div class="container">
-  <div class="col-md-8">
+<h2>Iterations</h2>
+<p>The architecture of the alpha has emerged during development to answer the needs of users. The following architectural diagrams were developed primarily to assist sprint planning:</p>
+<ul>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/concept">Concept</a> — our discovery phase</li>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint0">Sprint 0</a> — seeding the architecture</li>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint1">Sprint 1</a> – minimum, viable title creation</li>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint2">Sprint 2</a> — auditing and logging</li>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint3">Sprint 3</a> — making a decision</li>
+  <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint4">Sprint 4</a> — identity, matching and ownership services</li>
+</ul>
 
-    <h2>Iterations</h2>
-    <p>The architecture of the alpha has emerged during development to answer the needs of users. The following architectural diagrams were developed primarily to assist sprint planning:</p>
-    <ul>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/concept">Concept</a> — our discovery phase</li>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint0">Sprint 0</a> — seeding the architecture</li>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint1">Sprint 1</a> – minimum, viable title creation</li>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint2">Sprint 2</a> — auditing and logging</li>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint3">Sprint 3</a> — making a decision</li>
-      <li><a href="https://github.com/LandRegistry/architecture/tree/master/sprint4">Sprint 4</a> — identity, matching and ownership services</li>
-    </ul>
+<h2>Current status</h2>
+<p>The current architecture, automatically generated from the source code repositories. Please double click on an application to view the corresponding code repository.</p>
 
-  </div>
-</div>
+<script type="text/javascript" src="{{ site.baseurl }}/js/d3-v3-min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 
-<div class="container">
-  <div class="col-md-8">
-    <h2>Current status</h2>
-    <p>The current architecture, automatically generated from the source code repositories. Please double click on an application to view the corresponding code repository.</p>
-  </div>
-</div>
+<script type="text/javascript">
 
-<div class="container">
-  <div class="col-md-10">
+function showTip(d,i) {
 
-    <script type="text/javascript" src="{{ site.baseurl }}/js/d3-v3-min.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+  // Hover over code
+  $('<div class="ttip"></div>')
+  .text(d.name)
+  .append('<hr>')
+  .append('<p>Source code:  ' + d.github + '</p>')
+  .append('<p>Technology:  ' + d.tech + '</p>')
+  .append('<p>Dependencies:  ' + d.dep + '</p>')
+  .appendTo('body');
 
-    <script type="text/javascript">
+  $('.ttip').fadeIn('slow');
+}
 
-      function showTip(d,i) {
+function removeTip() {
 
-        // Hover over code
-        $('<div class="ttip"></div>')
-          .text(d.name)
-          .append('<hr>')
-          .append('<p>Source code:  ' + d.github + '</p>')
-          .append('<p>Technology:  ' + d.tech + '</p>')
-          .append('<p>Dependencies:  ' + d.dep + '</p>')
-          .appendTo('body');
+  // Hover out code
+  $('.ttip').remove();
 
-        $('.ttip').fadeIn('slow');
-      }
+}
 
-      function removeTip() {
+var coordinates = [0,0]; //mouse coordinates for node tooltip position
 
-        // Hover out code
-        $('.ttip').remove();
+d3.select('html') // Selects the 'html' element
+.on('mousemove', function()
+{
 
-      }
+  // Gets the mouse coordinates with respect to the top of the page
+  //This is required for the position of the tooltip for the nodes
+  coordinates = d3.mouse(this);
+});
 
-      var coordinates = [0,0]; //mouse coordinates for node tooltip position
+//mouse over event for a node
+function mouseMove() {
 
-      d3.select('html') // Selects the 'html' element
-        .on('mousemove', function()
-          {
+  //position the tooltip near to the mouse position
+  $('.ttip').css({ top: coordinates[1] + 10, left: coordinates[0] + 20 })
 
-            // Gets the mouse coordinates with respect to the top of the page
-            //This is required for the position of the tooltip for the nodes
-            coordinates = d3.mouse(this);
-          });
+}
 
-      //mouse over event for a node
-      function mouseMove() {
+//on click event for a node
+function onNodeClick(d) {
 
-        //position the tooltip near to the mouse position
-        $('.ttip').css({ top: coordinates[1] + 10, left: coordinates[0] + 20 })
+  window.location = d.github;
 
-      }
+};
 
-      //on click event for a node
-      function onNodeClick(d) {
+var json = {"nodes": [], "links": []};
 
-        window.location = d.github;
+// add nodes to json
+{% for service in site.data.services.production %}
 
-      };
+var node = {};
 
-      var json = {"nodes": [], "links": []};
+node["name"] = "{{ service.name }}";
+node["no"] = {{ forloop.index0 }};
+node["github"] = "{{ service.github }}";
+node["url"] = "{{ service.url }}";
+node["port"] = "{{ service.port }}";
+node["type"] = "{{ service.type }}";
+node["heroku"] = "{{ service.heroku }}";
 
-      // add nodes to json
-      {% for service in site.data.services.production %}
+var tech = "";
 
-        var node = {};
+{% for tech in service.tech %}
+tech += "{{ tech }} "
+{% endfor %}
 
-        node["name"] = "{{ service.name }}";
-        node["no"] = {{ forloop.index0 }};
-        node["github"] = "{{ service.github }}";
-        node["url"] = "{{ service.url }}";
-        node["port"] = "{{ service.port }}";
-        node["type"] = "{{ service.type }}";
-        node["heroku"] = "{{ service.heroku }}";
+node["tech"] = tech;
 
-        var tech = "";
+var dep = [];
 
-        {% for tech in service.tech %}
-          tech += "{{ tech }} "
-        {% endfor %}
+{% for dep in service.dependencies %}
+dep.push("{{ dep }}");
+{% endfor %}
 
-        node["tech"] = tech;
+node["dep"] = dep;
 
-        var dep = [];
+json.nodes.push(node);
 
-        {% for dep in service.dependencies %}
-          dep.push("{{ dep }}");
-        {% endfor %}
+{% endfor %}
 
-        node["dep"] = dep;
+var serviceIndex = -1;
 
-        json.nodes.push(node);
+//add links to json
+{% for service in site.data.services.production %}
 
-      {% endfor %}
+serviceIndex++;
 
-      var serviceIndex = -1;
+{% for dep in service.dependencies %}
 
-      //add links to json
-      {% for service in site.data.services.production %}
+//find node for dependency
+json.nodes.forEach(function(obj, i){
 
-        serviceIndex++;
+  if (obj.name == '{{ dep }}') {
 
-        {% for dep in service.dependencies %}
+    var link = {};
 
-          //find node for dependency
-          json.nodes.forEach(function(obj, i){
+    link["source"] = serviceIndex;
+    link["target"] = i;
+    link["value"] = 1;
 
-            if (obj.name == '{{ dep }}') {
+    json.links.push(link);
 
-              var link = {};
+  }
 
-              link["source"] = serviceIndex;
-              link["target"] = i;
-              link["value"] = 1;
+});
 
-              json.links.push(link);
+{% endfor %}
 
-            }
+{% endfor %}
 
-          });
+var width = 1200,
+height = 600
 
-        {% endfor %}
+var svg = d3.select("body").append("svg")
+.attr("width", width)
+.attr("height", height);
 
-      {% endfor %}
-
-      var width = 1200,
-          height = 600
-
-      var svg = d3.select("body").append("svg")
-          .attr("width", width)
-          .attr("height", height);
-
-      var force = d3.layout.force()
-          .gravity(1)
-          .distance(100)
-          .charge(-10000)
-          .size([width, height]);
+var force = d3.layout.force()
+.gravity(1)
+.distance(100)
+.charge(-10000)
+.size([width, height]);
 
 
-      //initialise position of frontend and system-of-record nodes
-      for (i = 0; i < json.nodes.length; i++) {
+//initialise position of frontend and system-of-record nodes
+for (i = 0; i < json.nodes.length; i++) {
 
-        switch(json.nodes[i].name) {
-          case "property-frontend":
-              json.nodes[i].x = 900;
-              json.nodes[i].y = 100;
-              json.nodes[i].fixed = true;
-              break;
-          case "casework-frontend":
-              json.nodes[i].x = 300;
-              json.nodes[i].y = 100;
-              json.nodes[i].fixed = true;
-              break;
-          case "service-frontend":
-              json.nodes[i].x = 600;
-              json.nodes[i].y = 100;
-              json.nodes[i].fixed = true;
-              break;
+  switch(json.nodes[i].name) {
+    case "property-frontend":
+      json.nodes[i].x = 900;
+      json.nodes[i].y = 100;
+      json.nodes[i].fixed = true;
+      break;
+      case "casework-frontend":
+        json.nodes[i].x = 300;
+        json.nodes[i].y = 100;
+        json.nodes[i].fixed = true;
+        break;
+        case "service-frontend":
+          json.nodes[i].x = 600;
+          json.nodes[i].y = 100;
+          json.nodes[i].fixed = true;
+          break;
           case "system-of-record":
-              json.nodes[i].x = 600;
-              json.nodes[i].y = 500;
-              json.nodes[i].fixed = true;
-              break;
-          default:
+            json.nodes[i].x = 600;
+            json.nodes[i].y = 500;
+            json.nodes[i].fixed = true;
+            break;
+            default:
               json.nodes[i].y = 300;
             }
 
-      }
+          }
 
-      force
+          force
           .nodes(json.nodes)
           .links(json.links);
 
-      //Build the directional arrows for the links/edges
-      svg.append("svg:defs")
-                  .selectAll("marker")
-                  .data(["end"])
-                  .enter().append("svg:marker")
-                  .attr("id", String)
-                  .attr("viewBox", "0 -5 10 10")
-                  .attr("markerWidth", 3)
-                  .attr("markerHeight", 3)
-                  .attr("orient", "auto")
-                  .append("svg:path")
-                  .attr("d", "M0,-5L10,0L0,5");
+          //Build the directional arrows for the links/edges
+          svg.append("svg:defs")
+          .selectAll("marker")
+          .data(["end"])
+          .enter().append("svg:marker")
+          .attr("id", String)
+          .attr("viewBox", "0 -5 10 10")
+          .attr("markerWidth", 3)
+          .attr("markerHeight", 3)
+          .attr("orient", "auto")
+          .append("svg:path")
+          .attr("d", "M0,-5L10,0L0,5");
 
-      var link = svg.selectAll(".link")
+          var link = svg.selectAll(".link")
           .data(json.links)
           .enter()
           .append("polyline")
@@ -256,101 +238,92 @@ permalink: /architecture/
           .attr("marker-mid", "url(#end)")
           .attr("class", "link");
 
-      var node = svg.selectAll(".node")
+          var node = svg.selectAll(".node")
           .data(json.nodes)
           .enter().append("g")
           .attr("class", "node")
           .call(force.drag);
 
-      //add an image to the node
-      node.append("image")
+          //add an image to the node
+          node.append("image")
           .attr("xlink:href", function(d) { return "{{ site.baseurl }}/images/" + d.type + ".png"} )
           .attr("x", -45)
           .attr("y", -25)
           .attr("width", 50)
           .attr("height", 50);
 
-      //add the name of the node to the picture
-      node.append("text")
+          //add the name of the node to the picture
+          node.append("text")
           .attr("dx", 12)
           .attr("dy", ".35em")
           .text(function(d) { return d.name });
 
-      node.on("mouseover", showTip)
+          node.on("mouseover", showTip)
           .on("mouseout", removeTip)
           .on("mousemove", mouseMove)
           .on("dblclick", onNodeClick)
 
-      //fixed position of node if a user moves it
-      function dragstart(d) {
-        d3.select(this).classed("fixed", d.fixed = true);
-      }
+          //fixed position of node if a user moves it
+          function dragstart(d) {
+            d3.select(this).classed("fixed", d.fixed = true);
+          }
 
-      var drag = force.drag()
+          var drag = force.drag()
           .on("dragstart", dragstart);
 
-      force.on("tick", function() {
+          force.on("tick", function() {
 
-        link.attr("points", function(d) {
-            return d.source.x + "," + d.source.y + " " +
-                   (d.source.x + d.target.x)/2 + "," + (d.source.y + d.target.y)/2 + " " +
-                   d.target.x + "," + d.target.y; });
+            link.attr("points", function(d) {
+              return d.source.x + "," + d.source.y + " " +
+              (d.source.x + d.target.x)/2 + "," + (d.source.y + d.target.y)/2 + " " +
+              d.target.x + "," + d.target.y; });
 
-        node.attr('y', function(d) {  return d.y; });
-        node.attr('x', function(d) {  return d.x; });
+              node.attr('y', function(d) {  return d.y; });
+              node.attr('x', function(d) {  return d.x; });
 
-        node.attr("transform", function(d) {
-                        return "translate(" + d.x + "," + d.y + ")";
-                  } //function
-                 ); //attr
-              }); //force.on
+              node.attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+              } //function
+            ); //attr
+          }); //force.on
 
-        force.start();
-        //force only 50 ticks
-        for (var i = 50; i > 0; --i) force.tick();
-        force.stop();
+          force.start();
+          //force only 50 ticks
+          for (var i = 50; i > 0; --i) force.tick();
+          force.stop();
 
-    </script>
+          </script>
 
-  </div>
-</div>
+          <h2>Dashboards</h2>
 
-<div class="container">
-  <div class="col-md-12">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>Service name</th>
+              <th>Github</th>
+              <th>Heroku</th>
+              <th>URL</th>
+              <th>Port</th>
+              <th>Tech</th>
+              <th>Dependencies</th>
+            </tr>
 
-    <h2>Dashboards</h2>
-
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Service name</th>
-        <th>Github</th>
-        <th>Heroku</th>
-        <th>URL</th>
-        <th>Port</th>
-        <th>Tech</th>
-        <th>Dependencies</th>
-      </tr>
-
-      {% for service in site.data.services.development %}
-        <tr>
-          <td>{{ service.name }}</td>
-          <td><a href="{{ service.github }}">{{ service.github }}</a></td>
-          <td>{{ service.heroku }}</td>
-          <td><a href="{{ service.url }}">{{ service.url }}</a></td>
-          <td>{{ service.port }}</td>
-          <td>
-            {% for tech in service.tech %}
-              {{ tech }} <br>
+            {% for service in site.data.services.development %}
+            <tr>
+              <td>{{ service.name }}</td>
+              <td><a href="{{ service.github }}">{{ service.github }}</a></td>
+              <td>{{ service.heroku }}</td>
+              <td><a href="{{ service.url }}">{{ service.url }}</a></td>
+              <td>{{ service.port }}</td>
+              <td>
+                {% for tech in service.tech %}
+                {{ tech }} <br>
+                {% endfor %}
+              </td>
+              <td>
+                {% for dep in service.dependencies %}
+                {{ dep }} <br>
+                {% endfor %}
+              </td>
+            </tr>
             {% endfor %}
-          </td>
-          <td>
-            {% for dep in service.dependencies %}
-              {{ dep }} <br>
-            {% endfor %}
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
-
-  </div>
-</div>
+          </table>
