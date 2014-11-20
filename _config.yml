@@ -1,5 +1,5 @@
 # Site settings
-title: "Land Registry open source code"
+title: "Land Registry Digital Service"
 description: "Open source code and accompanying documentation for the Land Registry digital service"
 baseurl: ""
 url: "localhost:4000"
