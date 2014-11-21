@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ site.description }}">
 <meta name="author" content="{{ site.author }}">
-<title>Land Registry Digital Service</title>
+<title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
 <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
 <link href="{{ site.baseurl }}/css/bootstrap-theme.min.css" rel="stylesheet">

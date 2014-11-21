@@ -1,8 +1,9 @@
 # Site settings
 title: "Land Registry Digital Service"
-description: "Open source code and accompanying documentation for the Land Registry digital service"
+description: "Land Registry Digital Service"
+author: "Land Registry Digital Service"
 baseurl: ""
-url: "localhost:4000"
+url: "http://www.landregistryconcept.co.uk/"
 
 # Build settings
 markdown: kramdown
