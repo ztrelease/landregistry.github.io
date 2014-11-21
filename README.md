@@ -8,10 +8,10 @@ Documentation for the Land Registry Alpha digital service: http://www.landregist
     $ open http://0.0.0.0:4000/
 
 # Uses
-*[Jekyll](http://jekyllrb.com/) for templating and static page generation.
-*[Bootstrap](http://getbootstrap.com/) for layouts and styling.
-*[Font Awesome](http://fontawesome.io/) for visual decoration.
-*[JQuery](http://jquery.com/) only because Bootstrap JS requires it :-(
+* [Jekyll](http://jekyllrb.com/) for templating and static page generation.
+* [Bootstrap](http://getbootstrap.com/) for layouts and styling.
+* [Font Awesome](http://fontawesome.io/) for visual decoration.
+* [JQuery](http://jquery.com/) only because Bootstrap JS requires it :-(
 
 # To add a new page
 
