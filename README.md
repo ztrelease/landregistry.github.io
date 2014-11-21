@@ -51,5 +51,5 @@ meta: Example blog post
 ```
 
 For consistent post formatting, use the ```post``` layout for blog posts.
-The ```title```, ```date``` and ```categories``` form part of the permalink for the post, for examplethe above Front Matter would generate the following URL: ```mywebsite.com/jekyll/update/2014/11/19/welcome-to-jekyll/'''.
+The ```title```, ```date``` and ```categories``` form part of the permalink for the post, for example the above Front Matter would generate the following URL: ```mywebsite.com/jekyll/update/2014/11/19/welcome-to-jekyll/```.
 The ```author``` and ```meta``` are also used on the site to provide additional information and should be used.
