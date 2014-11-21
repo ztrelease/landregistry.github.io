@@ -36,7 +36,7 @@ All pages in the root directory will automatically be added to the navigation ba
 
 Create a new branch in GitHub for your blog post, do not push directly to master, this is so that a pull request can be raised and reviewed for your blog post before going live.
 
-Place a ```.html```, ```.markdown```, ```.md``` or ```.textile``` file in the ```_posts``` directory with the following naming convention: ```YEAR-MONTH-DAY-title.extension''', for example ```2014-11-21-My-new-blog-title.md```
+Place a ```.html```, ```.markdown```, ```.md``` or ```.textile``` file in the ```_posts``` directory with the following naming convention: ```YEAR-MONTH-DAY-title.extension```, for example ```2014-11-21-My-new-blog-title.md```
 
 Each post must start with a Front Matter block in the following format:
 ```
