@@ -18,11 +18,13 @@ Documentation for the Land Registry Alpha digital service: http://www.landregist
 To add a new page to the site, place a ```.html```, ```.markdown```, ```.md``` or ```.textile``` file in the root directory.
 
 Each page must start with a Front Matter block in the following format:
-```---
+```
+---
 layout: default
 title: Manifesto
 permalink: /manifesto/
----```
+---
+```
 
 For consistent page formatting, use the ```default``` layout for static pages.
 
@@ -37,14 +39,16 @@ Create a new branch in GitHub for your blog post, do not push directly to master
 Place a ```.html```, ```.markdown```, ```.md``` or ```.textile``` file in the ```_posts``` directory with the following naming convention: ```YEAR-MONTH-DAY-title.extension''', for example ```2014-11-21-My-new-blog-title.md```
 
 Each post must start with a Front Matter block in the following format:
-```---
+```
+---
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2014-11-19 15:51:18
 categories: jekyll update
 author: Jekyll
 meta: Example blog post
----```
+---
+```
 
 For consistent post formatting, use the ```post``` layout for blog posts.
 The ```title```, ```date``` and ```categories``` form part of the permalink for the post, for examplethe above Front Matter would generate the following URL: ```mywebsite.com/jekyll/update/2014/11/19/welcome-to-jekyll/'''.
