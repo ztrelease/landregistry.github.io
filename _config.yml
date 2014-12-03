@@ -8,3 +8,4 @@ url: "http://www.landregistryconcept.co.uk/"
 # Build settings
 markdown: kramdown
 permalink: pretty
+exclude: [vendor]
