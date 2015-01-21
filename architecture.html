@@ -49,12 +49,24 @@ permalink: /architecture/
 </ul>
 
 <h2>Current status</h2>
-<p>The current architecture, automatically generated from the source code repositories. Please double click on an application to view the corresponding code repository.</p>
+<p>The application architecture at the end of the alpha. Please double click on an application to view the corresponding code repository.</p>
 
 <script type="text/javascript" src="{{ site.baseurl }}/js/d3-v3-min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/js/architecture.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/arch-draw.js"></script>
+
+<div id="architecture">
+</div>
+
+<script>
+  archDraw({"id":"architecture",
+  "width":"1000",
+  "height":"700",
+  "addLegend":true,
+  "drawFromCode":false,
+  "pathToData":"../"})
+</script>
 
 <h2>Dashboards</h2>
 
