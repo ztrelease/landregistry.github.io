@@ -1,9 +1,13 @@
 # Site settings
-title: "Land Registry Digital Service"
+title: "Land Registry Digital Service" # replace this with your own
+author: "Land Registry Digital Service" # replace this with your own
+email:
 description: "Land Registry Digital Service"
-author: "Land Registry Digital Service"
-baseurl: ""
-url: "http://www.landregistryconcept.co.uk/"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+theme: bootstrap
+
+
 
 # Build settings
 markdown: kramdown
