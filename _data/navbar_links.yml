@@ -1,0 +1,56 @@
+- name: "Home"
+  url: "/"
+
+- name: "About"
+  child_links:
+    - name: "Manifesto"
+      url: "/about/manifesto/"
+    - name: "Resources"
+      url: "/about/resources/"
+
+- name: "Public Beta"
+  child_links:
+    - name: "What is the Public Beta project?"
+      url: "/public_beta/public_main/"
+
+- name: "Private Beta"
+  child_links:
+    - name: "What is the Private Beta project?"
+      url: "/private_beta/private_main/"
+
+- name: "Workflow"
+  child_links:
+    - name: "What is the Workflow project?"
+      url: "/workflow/workflow_main/"
+
+- name: "Casework"
+  child_links:
+    - name: "What is the Casework project?"
+      url: "/casework/casework_main/"
+
+- name: "Data Migration"
+  child_links:
+    - name: "What is the Data Migration project?"
+      url: "/data_migration/data_migration_main/"
+
+- name: "Infrastructure"
+  child_links:
+    - name: "What is the Infrastructure project?"
+      url: "/infrastructure/infrastructure_main/"
+
+- name: "Non-Digital Channels"
+  child_links:
+    - name: "What is the Non-Digital Channels project?"
+      url: "/non_digital_channels/non_digital_channels_main/"
+
+- name: "Alpha"
+  child_links:
+    - name: "What it was about"
+      url: "/alpha/alpha_main/"
+      divider: true
+    - name: "Performance"
+      url: "/alpha/performance/"
+    - name: "Services"
+      url: "/alpha/services/"
+    - name: "User Research"
+      url: "/alpha/user_research/"
