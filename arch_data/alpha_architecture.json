@@ -3,7 +3,7 @@
     {
       "name": "system-of-record",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/system-of-record",
+      "github": "https://github.com/LandRegistry/system-of-record-alpha",
       "heroku": "lr-system-of-record",
       "url": "http://lr-system-of-record.herokuapp.com/",
       "port": 8000,
@@ -20,7 +20,7 @@
     {
       "name": "mint",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/mint",
+      "github": "https://github.com/LandRegistry/mint-alpha",
       "heroku": "lr-mint",
       "url": "http://lr-mint.herokuapp.com/",
       "port": 8001,
@@ -36,7 +36,7 @@
     {
       "name": "casework-frontend",
       "type": "front-end",
-      "github": "https://github.com/LandRegistry/casework-frontend",
+      "github": "https://github.com/LandRegistry/casework-frontend-alpha",
       "heroku": "lr-casework-frontend",
       "url": "http://casework.landregistryconcept.co.uk",
       "port": 8004,
@@ -53,7 +53,7 @@
     {
       "name": "property-frontend",
       "type": "front-end",
-      "github": "https://github.com/LandRegistry/property-frontend",
+      "github": "https://github.com/LandRegistry/property-frontend-alpha",
       "heroku": "lr-property-frontend",
       "url": "http://www.gov.uk.landregistryconcept.co.uk",
       "port": 8002,
@@ -69,7 +69,7 @@
     {
       "name": "service-frontend",
       "type": "front-end",
-      "github": "https://github.com/LandRegistry/service-frontend",
+      "github": "https://github.com/LandRegistry/service-frontend-alpha",
       "heroku": "lr-service-frontend",
       "url": "http://lr-service-frontend.herokuapp.com",
       "port": 8007,
@@ -91,7 +91,7 @@
     {
       "name": "search-api",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/search-api",
+      "github": "https://github.com/LandRegistry/search-api-alpha",
       "heroku": "lr-search-api",
       "url": "http://lr-search-api.herokuapp.com",
       "port": 8003,
@@ -107,7 +107,7 @@
     {
       "name": "the-feeder",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/the-feeder",
+      "github": "https://github.com/LandRegistry/the-feeder-alpha",
       "heroku": "lr-feeder-app",
       "url": null,
       "port": null,
@@ -123,7 +123,7 @@
     {
       "name": "decision",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/decision",
+      "github": "https://github.com/LandRegistry/decision-alpha",
       "heroku": "lr-decision",
       "url": null,
       "port": null,
@@ -136,7 +136,7 @@
     {
       "name": "matching",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/matching",
+      "github": "https://github.com/LandRegistry/matching-alpha",
       "heroku": "lr-match",
       "url": null,
       "port": null,
@@ -151,7 +151,7 @@
     {
       "name": "ownership",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/ownership",
+      "github": "https://github.com/LandRegistry/ownership-alpha",
       "heroku": "lr-ownership",
       "url": null,
       "port": null,
@@ -167,7 +167,7 @@
     {
       "name": "introductions",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/introductions",
+      "github": "https://github.com/LandRegistry/introductions-alpha",
       "heroku": "lr-introduction-service",
       "url": null,
       "port": null,
@@ -183,7 +183,7 @@
     {
       "name": "cases",
       "type": "back-end",
-      "github": "https://github.com/LandRegistry/cases",
+      "github": "https://github.com/LandRegistry/cases-alpha",
       "heroku": "lr-cases",
       "url": null,
       "port": null,
