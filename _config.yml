@@ -4,7 +4,7 @@ author: "Land Registry Digital Service" # replace this with your own
 email:
 description: "Land Registry Digital Service"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+url: "http://www.landregistryconcept.co.uk/"
 theme: bootstrap
 
 
