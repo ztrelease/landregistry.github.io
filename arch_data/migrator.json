@@ -1,0 +1,122 @@
+{
+  "production": [
+    {
+      "name": "migrate-register",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrate-error",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrate-register-consumer",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby",
+        "torque-box",
+        "jboss"
+      ],
+      "dependencies": [
+        "migrate-register",
+        "migrate-error"
+
+      ]
+    },
+
+    {
+      "name": "register-extractors",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby",
+        "torque-box",
+        "jboss"
+      ],
+      "dependencies": [
+        "migrate-register-consumer",
+        "intelligent-register"
+      ]
+    },
+
+    {
+      "name": "intelligent-register",
+      "type": "database",
+      "database": "false",
+      "tech": [
+        "db2"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "geometry-extractors",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby",
+        "torque-box",
+        "jboss"
+      ],
+      "dependencies": [
+        "migrate-geo-convert",
+        "migrate-geo-complete",
+        "intelligent-register"
+      ]
+    },
+
+    {
+      "name": "migrate-geo-convert-consumer",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby",
+        "torque-box",
+        "jboss"
+      ],
+      "dependencies": [
+        "migrate-geo-convert",
+        "migrate-geo-complete"
+      ]
+    },
+
+    {
+      "name": "migrate-geo-convert",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrate-geo-complete",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    }
+
+  ]
+
+}

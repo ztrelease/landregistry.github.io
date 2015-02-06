@@ -1,0 +1,28 @@
+- name: "Home"
+  url: "/"
+
+- name: "About"
+  child_links:
+    - name: "Manifesto"
+      url: "/about/manifesto/"
+    - name: "Resources"
+      url: "/about/resources/"
+
+- name : "Team"
+  child_links:
+    - name: "Alpha"
+      url: "/alpha/alpha_main/"
+    - name: "GOV.UK Property Page"
+      url: "/govuk_property/govuk_property_main/"
+    - name: "Digital Register"
+      url: "/digital_register/digital_register_main/"
+    - name: "Migration"
+      url: "/migration/migration_main/"
+    - name: "Workflow"
+      url: "/workflow/workflow_main/"
+    - name: "Casework"
+      url: "/casework/casework_main/"
+    - name: "Infrastructure"
+      url: "/infrastructure/infrastructure_main/"
+    - name: "Non-Digital Channels"
+      url: "/non_digital_channels/non_digital_channels_main/"
