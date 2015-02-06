@@ -41,7 +41,7 @@ function processNodes(service, json) {
   var node = {};
 
   node["name"] = service.name;
-  node["github"] = service.github;
+  node["code_url"] = service.code_url;
   node["url"] = service.url;
   node["port"] = service.port;
   node["type"] = service.type;
@@ -220,7 +220,7 @@ function drawArchitecture(options, json) {
   .style("opacity", 0)
   .style("text-align","center")
   .style("width","300px")
-  .style("height","115px")
+  .style("height","140px")
   .style("border-radius","8px")
   .style("border","0px")
   .style("padding","2px")
@@ -267,9 +267,11 @@ function drawArchitecture(options, json) {
     .style("left", (d3.event.pageX + 5) + "px")
     .style("top", (d3.event.pageY - 28) + "px")
     .html(function(){
-      return "<p>Source code: " + d.github + " (double click service to go to github)</p>" +
-        "<p> Technology: " + d.tech + " </p>" +
-        "<p>Dependencies: " + d.dep + " </p>";
+      var type = "<p>Type: " + d.type + "</p>";
+      var sourceCode = ((d.code_url == "" || d.code_url == null) ? "" : "<p>Source code: " + d.code_url + " (double click to go to code repository)</p>");
+      var tech = ((d.tech == "") ? "" : "<p>Technology: " + d.tech + " </p>");
+      var dep = ((d.dep == "") ? "" : "<p>Dependencies: " + d.dep + " </p>");
+      return type + sourceCode + tech + dep;
     })
   })
   .on("mouseout", function(d) {
@@ -434,10 +436,25 @@ function drawArchitecture(options, json) {
   .attr("height", "50")
   .attr("rx", "5")
   .attr("ry", "5")
-  .attr("fill", function(d) { if (d.type=="back-end") { return "url(#backend)"} else { return "url(#frontend)"};})
-  .attr("class","dark-colour")
-  .attr("stroke", function(d) { if (d.type=="back-end") { return "#000173";} else { return "#360000"};})
-  .attr("filter","url(#virtual_light)");
+  .attr("fill", function(d) {
+
+    switch(d.type) {
+      case "back-end":
+        return "url(#backend)";
+        break;
+      case "front-end":
+        return "url(#frontend)";
+        break;
+      case "queue":
+        return "white";
+        break;
+      case "database":
+        return "white";
+        break;
+      };  })
+  .attr("stroke", function(d) { if (d.type=="queue" || d.type=="database") { return "white"}
+                                else { return ((d.type=="back-end") ? "#000173" : "#360000")}})
+  .attr("filter",function(d) { return (((d.type=="queue" || d.type=="database")) ? "none" : "url(#virtual_light)")});
 
   nodes.append("text")
   .text(function(d) { return d.name; })
@@ -458,12 +475,72 @@ function drawArchitecture(options, json) {
 
     };
 
+    if (d.type == "queue") {
+
+      node.append("path")
+      .attr("d","M2,10 L10,10 L10,40 L40,40 L40,10 L48,10")
+      .attr("stroke","black")
+      .attr("stroke-width","3")
+      .attr("fill","none");
+
+    };
+
+    if (d.type == "database") {
+
+      bigDatabase = node.append("g")
+      .attr("fill","#cc00ff")
+      .attr("style","stroke-width:3;fill-opacity:1");
+
+      bigDatabase.append("ellipse")
+      .attr("rx","25")
+      .attr("ry","10")
+      .attr("cx","25")
+      .attr("cy","40")
+      .attr("fill","#cccccc")
+      .attr("stroke","#000000");
+
+      bigDatabase.append("rect")
+      .attr("width","50")
+      .attr("height","30")
+      .attr("x","0")
+      .attr("y","10")
+      .attr("fill","#cccccc")
+      .attr("stroke","none");
+
+      bigDatabase.append("ellipse")
+      .attr("rx","25")
+      .attr("ry","10")
+      .attr("cx","25")
+      .attr("cy","10")
+      .attr("fill","#cccccc")
+      .attr("stroke","#000000");
+
+      bigDatabase.append("line")
+      .attr("x1","0")
+      .attr("y1","10")
+      .attr("x2","0")
+      .attr("y2","40")
+      .attr("fill","#cccccc")
+      .attr("stroke","#000000");
+
+      bigDatabase.append("line")
+      .attr("x1","50")
+      .attr("y1","10")
+      .attr("x2","50")
+      .attr("y2","40")
+      .attr("fill","#cccccc")
+      .attr("stroke","#000000");
+
+    };
+
   });
 
   //on click event for a node
   function onNodeDoubleClick(d) {
 
-    window.location = d.github;
+    if (!(d.code_url=="") && !(d.code_url==null)) {
+      window.location = d.code_url;
+    };
 
   };
 
@@ -526,7 +603,7 @@ function addLegend(options) {
 
   legend.append("rect")
   .attr("width","155")
-  .attr("height","200")
+  .attr("height","250")
   .attr("stroke", "black")
   .attr("fill","none");
 
@@ -575,43 +652,50 @@ function addLegend(options) {
   .attr("y", 175)
   .style("font", "12px sans-serif");
 
+  legend.append("rect")
+  .attr("width", "50")
+  .attr("height", "50")
+  .attr("rx", "5")
+  .attr("ry", "5")
+  .attr("x", 5)
+  .attr("y", 190)
+  .attr("fill", "white")
+  .attr("stroke", "white");
+
+  legend.append("path")
+  .attr("d","M9,200 L17,200 L17,230 L47,230 L47,200 L55,200")
+  .attr("stroke","black")
+  .attr("stroke-width","3")
+  .attr("fill","none");
+
+  legend.append("text")
+  .text("queue")
+  .attr("x", 62)
+  .attr("y", 217)
+  .style("font", "12px sans-serif");
+
   legend.attr("transform", function(d) {
-    return "translate(" + [options.width-156, 0] + ")";
+    return "translate(" + [options.width-156, 2] + ")";
   });
 
 };
 
 function archDraw(options) {
-  var data;
 
-  var pathToData;
+  var dataFileName;
 
-  if (options.pathToData == null) {
+  var pathToData = ((options.pathToData == null) ? "" : options.pathToData);
 
-    pathToData = "";
+  var defaultDataName = ((options.drawFromCode == true) ? "repos.json" : "services.json");
 
-  } else {
+  var dataFileName = ((options.dataFileName == null) ? defaultDataName : options.dataFileName);
 
-    pathToData = options.pathToData;
+  d3.json(pathToData + dataFileName, function(error, fileData) {
+    if (error) return console.warn(error);
 
-  };
+    var data = ((options.drawFromCode == true) ? loadDataFromRepos(fileData) : loadDataFromFile(fileData));
 
-  if (options.drawFromCode == true) {
-
-    d3.json(pathToData + "repos.json", function(error, repos) {
-      if (error) return console.warn(error);
-      data = loadDataFromRepos(repos);
-      drawArchitecture(options, data)
-    });
-
-  } else {
-
-    d3.json(pathToData + "services.json", function(error, services_json) {
-      if (error) return console.warn(error);
-      data = loadDataFromFile(services_json);
-      drawArchitecture(options, data)
-    });
-
-  };
+    drawArchitecture(options, data)
+  });
 
 };

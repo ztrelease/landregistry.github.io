@@ -1,0 +1,167 @@
+{
+  "production": [
+    {
+      "name": "system-of-record",
+      "type": "back-end",
+      "database": "true",
+      "code_url": "https://github.com/LandRegistry/system-of-record",
+      "tech": [
+        "python",
+        "flask"
+      ],
+      "dependencies": [
+        "postgres",
+        "publish-queue"
+      ]
+    },
+
+    {
+      "name": "mint",
+      "type": "back-end",
+      "database": "false",
+      "code_url": "https://github.com/LandRegistry/mint",
+      "tech": [
+        "python",
+        "flask"
+      ],
+      "dependencies": [
+        "system-of-record"
+      ]
+    },
+
+    {
+      "name": "migrate-register",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrate-geo-convert",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrate-geo-complete",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migrator",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby",
+        "torque-box",
+        "jboss"
+      ],
+      "dependencies": [
+        "migrate-register",
+        "migrate-error",
+        "mint-submit",
+        "migration-audit-database",
+        "migrate-geo-convert",
+        "migrate-geo-complete",
+        "intelligent-register"
+      ]
+    },
+
+    {
+      "name": "migrate-error",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "mint-submit",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migration-dashboard",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "ruby"
+      ],
+      "dependencies": [
+        "migrator"
+      ]
+    },
+
+    {
+      "name": "mint-emitter",
+      "type": "back-end",
+      "database": "false",
+      "tech": [
+        "jruby"
+      ],
+      "dependencies": [
+        "mint",
+        "mint-submit-error",
+        "mint-submit"
+      ]
+    },
+
+    {
+      "name": "mint-submit-error",
+      "type": "queue",
+      "database": "false",
+      "tech": [
+        "jms"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "migration-audit-database",
+      "type": "database",
+      "database": "false",
+      "tech": [
+        "mongoDB"
+      ],
+      "dependencies": [
+      ]
+    },
+
+    {
+      "name": "intelligent-register",
+      "type": "database",
+      "database": "false",
+      "tech": [
+        "db2"
+      ],
+      "dependencies": [
+      ]
+    }
+
+    ]
+}
