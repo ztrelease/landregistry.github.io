@@ -11,7 +11,7 @@ permalink: /migration/migration_main/
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" style="font-size:140%">
-    <h2>Process</h2>
+    <h1>Process</h1>
 
     <p>
       The current idea is that each individual version of a title in the land register will be held as a document, that document will be signed to say it is an offical Land Registry title, and stored in an immutable way that is tamper evident. That means each version of each title cannot be amended once it is stored, but if somehow it is amended we can detect that it has been changed.
@@ -32,7 +32,7 @@ permalink: /migration/migration_main/
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" style="font-size:140%">
-    <h2>Application Architecture</h2>
+    <h1>Application Architecture</h1>
 
     We have decided to implement the following design in order to follow the above process:
 
@@ -57,7 +57,7 @@ permalink: /migration/migration_main/
 <div class="row">
   <div class="col-md-10 col-md-offset-1" style="font-size:140%">
 
-    To delve a little more detail on design of the migrator application:
+    To delve into a little more detail on the design of the migrator application:
 
     <div id="migrator-detail">
     </div>
@@ -77,22 +77,93 @@ permalink: /migration/migration_main/
 <div class="row">
   <div class="col-md-3 col-md-offset-1" style="font-size:140%">
 
-    <h2>Load and Transform - Migrator</h2>
+    <h1>Load and Transform - Migrator</h1>
 
     The migrator is the application that does the read and transform part of the migration process. It reads from the intelligent register dataset on DB2, and transforms that into a json structure.
   </div>
 
   <div class="col-md-3" style="font-size:140%">
 
-    <h2>Digital Signature - Mint</h2>
+    <h1>Digital Signature - Mint</h1>
 
     The mint fulfills the digital signing part of the process. It takes in a title register and digitally signs it using the <a href="http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem</a> before sending it on to the system of record. This in itself means that each individual signed title is tamper evident.
   </div>
 
   <div class="col-md-4" style="font-size:140%">
 
-    <h2>Immutability and Tamper Evident - System of Record</h2>
+    <h1>Immutability and Tamper Evident - System of Record</h1>
 
     The system of record takes in a signed title register and stores it in way it can't be changed (immutable), and then extends the tamper evidence of the system by storing the title register in a hash chain.
+  </div><br>
+</div>
+
+<div class="row">
+  <div id="continuous-integration" class="col-md-10 col-md-offset-1" style="font-size:140%">
+    <h1>Continuous Integration</h1>
+
+    <h3>Open Source</h3>
+
+    <p>
+      The diagram below describes the continuous integration pipeline for open source code that we will be trialling within the Migration team, this includes application code as well as infrastructure code.
+    </p>
+
+    <img src="/images/open_source_ci_pipeline.png" alt="open_ci" width="100%" height="800px"/>
+
+    <h4>Step 1 - Code Change</h4>
+
+    This is when somebody (developer/tester/ops/etc...) changes the code for either an application or the infrastructure.
+
+    <h4>Step 2 - Monitor Code</h4>
+
+    Here the Preview Jenkins has been configured to monitor the open source on Github for any changes. Once a change has been identified Step 3 is triggered.
+
+    <h4>Step 3 - Run Unit Tests</h4>
+
+    The Preview Jenkins pulls the code that has changed from Github and locally runs the unit tests that should come with the code. Other tests can be run at this point i.e. code coverage tests. If the tests pass step 4 is triggered.
+
+    <h4>Step 4 - Deploy and Run Tests</h4>
+
+    The Preview Jenkins deploys the changed code to the preview environment and runs acceptance tests.
+    The preview environment is where all the applications within the teams responsiblity/business service are deployed and where we will get the first initial view of how well they integrate together.
+    This is the first environment where the things the applications need i.e. databases and queues are installed using infrastructure as code.
+    If all the tests pass step 5 is triggered.
+
+    <h4>Step 5 - Tag Good Commits</h4>
+
+    The Preview Jenkins tags the commits within Github to say "This commit has passed all the tests and is therefore good to go."
+
+    <h4>Step 6 - Monitor Commit Tags</h4>
+
+    The Internal Jenkins monitors github for any commits that have been marked as good. If one is found step 7 is triggered.
+
+    <h4>Step 7 - Push Tagged Code</h4>
+
+    The Internal Jenkins pulls the code from github that has been tagged as good, and pushes it into Gitlab.
+
+    <h4>Step 8 - Deploy and Run Tests</h4>
+
+    Other than step 1, this is the first step that is initially going to be manually triggered. It will still be scripted but manually started. Once triggered it will deploy the code from Gitlab to pre-production environment.
+    The pre-production environment mirrors production in every way possible. It is a centrally managed environment, monitored and kept in the right state by <a href="http://puppetlabs.com/">Puppet</a>.
+    Here we can run any number of tests including performance, security and infrastructure tests but we could also re-run unit and acceptance tests if we wanted.
+
+    <h4>Step 9 - Deploy and Run Tests</h4>
+
+    Another manually triggered step, where the Internal Jenkins deploys the code, both application and infrastructure, to the production environment.
+    We can run the entire suite or a sub-set of tests here if we want, or enough to ensure the environment and application is set up and running correctly.
+
+  </div>
+</div>
+
+<div class="row">
+  <div id="non-open_source" class="col-md-10 col-md-offset-1" style="font-size:140%">
+
+    <h3>Non-open Source</h3>
+
+    <p>
+      The diagram below describes the continuous integration pipeline for non-open source code. The only difference is that people work directly with Gitlab rather than Github.
+    </p>
+
+    <img src="/images/non-open_source_ci_pipeline.png" alt="non-open_ci" width="800px" height="800px"/>
+
   </div>
 </div>
