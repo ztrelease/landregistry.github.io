@@ -3,7 +3,8 @@ layout: dynamic_navbar_footer
 title: What is the Migration project?
 permalink: /migration/migration_main/
 ---
-<div class="jumbotron">
+
+<div class="jumbotron mig-jumbo">
   <h1>Overview of Migration</h1>
 
   <p>The purpose of the migration project is to take the land register from the existing mainframe, transform it into a new structure and load it into a new data store that will be used as the core data set for the new digital Land Registry.</p>
@@ -11,7 +12,7 @@ permalink: /migration/migration_main/
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" style="font-size:140%">
-    <h1>Process</h1>
+    <h1 class="mig-header">Process</h1>
 
     <p>
       The current idea is that each individual version of a title in the land register will be held as a document, that document will be signed to say it is an offical Land Registry title, and stored in an immutable way that is tamper evident. That means each version of each title cannot be amended once it is stored, but if somehow it is amended we can detect that it has been changed.
@@ -32,7 +33,7 @@ permalink: /migration/migration_main/
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" style="font-size:140%">
-    <h1>Application Architecture</h1>
+    <h1 class="mig-header">Application Architecture</h1>
 
     We have decided to implement the following design in order to follow the above process:
 
@@ -77,21 +78,21 @@ permalink: /migration/migration_main/
 <div class="row">
   <div class="col-md-3 col-md-offset-1" style="font-size:140%">
 
-    <h1>Load and Transform - Migrator</h1>
+    <h2>Load and Transform - Migrator</h2>
 
     The migrator is the application that does the read and transform part of the migration process. It reads from the intelligent register dataset on DB2, and transforms that into a json structure.
   </div>
 
   <div class="col-md-3" style="font-size:140%">
 
-    <h1>Digital Signature - Mint</h1>
+    <h2>Digital Signature - Mint</h2>
 
     The mint fulfills the digital signing part of the process. It takes in a title register and digitally signs it using the <a href="http://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">RSA cryptosystem</a> before sending it on to the system of record. This in itself means that each individual signed title is tamper evident.
   </div>
 
   <div class="col-md-4" style="font-size:140%">
 
-    <h1>Immutability and Tamper Evident - System of Record</h1>
+    <h2>Immutability and Tamper Evident - System of Record</h2>
 
     The system of record takes in a signed title register and stores it in way it can't be changed (immutable), and then extends the tamper evidence of the system by storing the title register in a hash chain.
   </div><br>
@@ -99,7 +100,7 @@ permalink: /migration/migration_main/
 
 <div class="row">
   <div id="continuous-integration" class="col-md-10 col-md-offset-1" style="font-size:140%">
-    <h1>Continuous Integration</h1>
+    <h1 class="mig-header">Continuous Integration</h1>
 
     <h3>Open Source</h3>
 
