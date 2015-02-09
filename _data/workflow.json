@@ -1,0 +1,77 @@
+"team": {
+  "name": "Workflow Team",
+  "project": "P316 Workflow Management",
+  "phase": "Discovery",
+  "email": "workflow-team",
+  "slack": "workflow",
+  "members": [
+    {
+      "forename": "Matt",
+      "surname": "Shaw",
+      "role": "Developer",
+      "twitter": "MattShaw85",
+      "github": "matthew-shaw",
+      "slack": "matthew-shaw"
+    },
+    {
+      "forename": "Donna",
+      "surname": "Hasnip",
+      "role": "Delivery Manager",
+      "email": "donna.hasnip",
+      "github": "Deehaitch",
+      "slack": "dhasnip"
+    },
+    {
+      "forename": "Carla",
+      "surname": "Pinhey",
+      "role": "Product Owner",
+      "email": "carla.pinhey",
+      "slack": "carlapinhey"
+    },
+    {
+      "forename": "Alan",
+      "surname": "Hughes",
+      "role": "Developer",
+      "github": "alanhugheslandregistry",
+      "slack": "alanhughes"
+    },
+    {
+      "forename": "Jan",
+      "surname": "Bytheway",
+      "role": "Business Analyst"
+    },
+    {
+      "forename": "Kriss",
+      "surname": "Latham-Sneath",
+      "role": "Tester",
+      "github": "kls-101",
+      "slack": "kls"
+    },
+    {
+      "forename": "Matt",
+      "surname": "Thomas",
+      "role": "Developer",
+      "slack": "mrthomas1"
+    },
+    {
+      "forename": "Paul",
+      "surname": "Bishop",
+      "role": "Tester",
+      "slack": "paul.bishop"
+    },
+    {
+      "forename": "Paul",
+      "surname": "Willcocks",
+      "role": "Developer",
+      "github": "pwillcocks",
+      "slack": "p_willcocks"
+    },
+    {
+      "forename": "Sarah",
+      "surname": "Goodinson",
+      "role": "Tester",
+      "github": "SarahG34LR",
+      "slack": "sarahfgoodinson"
+    }
+  ]
+}
