@@ -6,6 +6,10 @@ description: "Land Registry Digital Service"
 baseurl: ""
 url: "http://www.landregistryconcept.co.uk/"
 theme: bootstrap
+email_domain: "@digital.landregistry.gov.uk"
+github_url: https://github.com/
+twitter_url: https://twitter.com/
+slack_url: https://landregistry.slack.com/messages/
 
 
 
