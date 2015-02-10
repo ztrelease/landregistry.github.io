@@ -26,3 +26,5 @@
       url: "/infrastructure/infrastructure_main/"
     - name: "Non-Digital Channels"
       url: "/non_digital_channels/non_digital_channels_main/"
+    - name: "Beta Architecture"
+      url: "/beta_architecture/beta_architecture_main/"
