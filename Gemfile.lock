@@ -38,7 +38,7 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (>= 2.7)
       net-http-pipeline
-    github-pages (32)
+    github-pages (33)
       RedCloth (= 4.2.9)
       github-pages-health-check (~> 0.2)
       jekyll (= 2.4.0)
@@ -52,7 +52,7 @@ GEM
       liquid (= 2.6.1)
       maruku (= 0.7.0)
       mercenary (~> 0.3)
-      pygments.rb (= 0.6.0)
+      pygments.rb (= 0.6.1)
       rdiscount (= 2.1.7)
       redcarpet (= 3.1.2)
       terminal-table (~> 1.4)
@@ -131,9 +131,9 @@ GEM
     pusher-client (0.6.0)
       json
       websocket (~> 1.0)
-    pygments.rb (0.6.0)
+    pygments.rb (0.6.1)
       posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.1.0)
+      yajl-ruby (~> 1.2.0)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -164,13 +164,13 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     websocket (1.2.1)
-    yajl-ruby (1.1.0)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages (= 32)
+  github-pages (= 33)
   html-proofer
   json
   travis
