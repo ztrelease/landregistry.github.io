@@ -100,6 +100,18 @@
       "core": false,
       "github": "sdchapman",
       "slack": "sdchapman"
+    },
+    {
+      "forename": "Jane",
+      "surname": "Devine",
+      "role": "User Researcher",
+      "core": true
+    },
+    {
+      "forename": "Vikki",
+      "surname": "Wooding",
+      "role": "User Researcher",
+      "core": true
     }
   ]
 }
