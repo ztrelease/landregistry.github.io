@@ -6,13 +6,14 @@
   "slack": "workflow",
   "members": [
     {
-      "forename": "Matt",
+      "forename": "Matthew",
       "surname": "Shaw",
       "role": "Developer",
       "core": true,
       "twitter": "MattShaw85",
       "github": "matthew-shaw",
-      "slack": "matthew-shaw"
+      "slack": "matthew-shaw",
+      "trello": "mattshaw85"
     },
     {
       "forename": "Donna",
@@ -22,7 +23,8 @@
       "twitter":"DonnaHasnip",
       "email": "donna.hasnip",
       "github": "Deehaitch",
-      "slack": "dhasnip"
+      "slack": "dhasnip",
+      "trello": "donnahasnip1"
     },
     {
       "forename": "Carla",
@@ -38,14 +40,16 @@
       "role": "Developer",
       "core": true,
       "github": "alanhugheslandregistry",
-      "slack": "alanhughes"
+      "slack": "alanhughes",
+      "trello": "alanhughes1"
     },
     {
       "forename": "Jan",
       "surname": "Bytheway",
       "role": "Business Analyst",
       "core": false,
-      "slack": "janbytheway"
+      "slack": "janbytheway",
+      "trello": "janbytheway1"
     },
     {
       "forename": "Kriss",
@@ -53,21 +57,26 @@
       "role": "Tester",
       "core": true,
       "github": "kls-101",
-      "slack": "kls"
+      "slack": "kls",
+      "trello": "kls3"
     },
     {
       "forename": "Matt",
       "surname": "Thomas",
       "role": "Developer",
       "core": true,
-      "slack": "mrthomas1"
+      "slack": "mrthomas1",
+      "trello": "matthewthomas",
+      "github": "lrmrthomas"
     },
     {
       "forename": "Paul",
       "surname": "Bishop",
       "role": "Tester",
       "core": true,
-      "slack": "paul.bishop"
+      "slack": "paul.bishop",
+      "trello": "paulbishop69",
+      "github": "paulbishop69"
     },
     {
       "forename": "Paul",
@@ -75,7 +84,8 @@
       "role": "Developer",
       "core": true,
       "github": "pwillcocks",
-      "slack": "p_willcocks"
+      "slack": "p_willcocks",
+      "trello": "paulwillcocks"
     },
     {
       "forename": "Sarah",
@@ -83,7 +93,8 @@
       "role": "Tester",
       "core": true,
       "github": "SarahG34LR",
-      "slack": "sarahfgoodinson"
+      "slack": "sarahfgoodinson",
+      "trello": "sarahgoodinson"
     },
     {
       "forename": "Geoff",
@@ -91,7 +102,8 @@
       "role": "Test Manager",
       "core": false,
       "github": "lrgeofflewis",
-      "slack": "geofflewis"
+      "slack": "geofflewis",
+      "trello": "geofflewis2"
     },
     {
       "forename": "Simon",
@@ -99,7 +111,8 @@
       "role": "Technical Architect",
       "core": false,
       "github": "sdchapman",
-      "slack": "sdchapman"
+      "slack": "sdchapman",
+      "trello": "sdchapman"
     },
     {
       "forename": "Jane",
