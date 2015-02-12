@@ -9,6 +9,7 @@
       "forename": "Matt",
       "surname": "Shaw",
       "role": "Developer",
+      "core": true,
       "twitter": "MattShaw85",
       "github": "matthew-shaw",
       "slack": "matthew-shaw"
@@ -17,6 +18,7 @@
       "forename": "Donna",
       "surname": "Hasnip",
       "role": "Delivery Manager",
+      "core": true,
       "twitter":"DonnaHasnip",
       "email": "donna.hasnip",
       "github": "Deehaitch",
@@ -26,6 +28,7 @@
       "forename": "Carla",
       "surname": "Pinhey",
       "role": "Product Owner",
+      "core": true,
       "email": "carla.pinhey",
       "slack": "carlapinhey"
     },
@@ -33,6 +36,7 @@
       "forename": "Alan",
       "surname": "Hughes",
       "role": "Developer",
+      "core": true,
       "github": "alanhugheslandregistry",
       "slack": "alanhughes"
     },
@@ -40,12 +44,14 @@
       "forename": "Jan",
       "surname": "Bytheway",
       "role": "Business Analyst",
+      "core": false,
       "slack": "janbytheway"
     },
     {
       "forename": "Kriss",
       "surname": "Latham-Sneath",
       "role": "Tester",
+      "core": true,
       "github": "kls-101",
       "slack": "kls"
     },
@@ -53,18 +59,21 @@
       "forename": "Matt",
       "surname": "Thomas",
       "role": "Developer",
+      "core": true,
       "slack": "mrthomas1"
     },
     {
       "forename": "Paul",
       "surname": "Bishop",
       "role": "Tester",
+      "core": true,
       "slack": "paul.bishop"
     },
     {
       "forename": "Paul",
       "surname": "Willcocks",
       "role": "Developer",
+      "core": true,
       "github": "pwillcocks",
       "slack": "p_willcocks"
     },
@@ -72,8 +81,37 @@
       "forename": "Sarah",
       "surname": "Goodinson",
       "role": "Tester",
+      "core": true,
       "github": "SarahG34LR",
       "slack": "sarahfgoodinson"
+    },
+    {
+      "forename": "Geoff",
+      "surname": "Lewis",
+      "role": "Test Manager",
+      "core": false,
+      "github": "lrgeofflewis",
+      "slack": "geofflewis"
+    },
+    {
+      "forename": "Simon",
+      "surname": "Chapman",
+      "role": "Technical Architect",
+      "core": false,
+      "github": "sdchapman",
+      "slack": "sdchapman"
+    },
+    {
+      "forename": "Jane",
+      "surname": "Devine",
+      "role": "User Researcher",
+      "core": true
+    },
+    {
+      "forename": "Vikki",
+      "surname": "Wooding",
+      "role": "User Researcher",
+      "core": true
     }
   ]
 }
