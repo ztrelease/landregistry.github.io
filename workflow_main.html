@@ -6,31 +6,59 @@ permalink: /workflow/workflow_main/
 <h1><i class="fa fa-users fa-fw"></i> {{ site.data.workflow.team.name }}</h1>
 <h4>Project: {{ site.data.workflow.team.project }}</h4>
 <h4>Phase: {% case site.data.workflow.team.phase %}
-    {% when 'Discovery' %}<span class="label label-danger">{{ site.data.workflow.team.phase }}</span>
-    {% when 'Alpha' %} <span class="label label-warning">{{ site.data.workflow.team.phase }}</span>
-    {% when 'Beta' %} <span class="label label-primary">{{ site.data.workflow.team.phase }}</span>
-    {% when 'Live' %} <span class="label label-success">{{ site.data.workflow.team.phase }}</span>
+  {% when 'Discovery' %}<span class="label label-danger">{{ site.data.workflow.team.phase }}</span>
+  {% when 'Alpha' %} <span class="label label-warning">{{ site.data.workflow.team.phase }}</span>
+  {% when 'Beta' %} <span class="label label-primary">{{ site.data.workflow.team.phase }}</span>
+  {% when 'Live' %} <span class="label label-success">{{ site.data.workflow.team.phase }}</span>
   {% endcase %}</h4>
-{% if site.data.workflow.team.email %}<h4>Team Email: <a href="mailto:{{ site.data.workflow.team.email }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i> {{ site.data.workflow.team.email }}</a></h4>{% endif %}
-{% if site.data.workflow.team.slack %}<h4>Team Slack: <a href="{{ site.slack_url }}{{ site.data.workflow.team.slack }}"><i class="fa fa-slack fa-fw"></i> {{ site.data.workflow.team.slack }}</a></h4>{% endif %}
-<hr>
-<h2>Members <span class="badge">{{ site.data.workflow.team.members | size }}</span></h2>
-<div class="row">
-  {% assign members = site.data.workflow.team.members | sort: "forename" %}
-  {% for member in members %}
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><strong><i class="fa fa-user fa-fw"></i> {{ member.forename }} {{ member.surname }}</strong></h3>
-        <h3 class="panel-title"><i class="fa fa-suitcase fa-fw"></i> {{ member.role }}</h3>
+  {% if site.data.workflow.team.email %}<h4>Team Email: <a href="mailto:{{ site.data.workflow.team.email }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i> {{ site.data.workflow.team.email }}</a></h4>{% endif %}
+  {% if site.data.workflow.team.slack %}<h4>Team Slack: <a href="{{ site.slack_url }}{{ site.data.workflow.team.slack }}"><i class="fa fa-slack fa-fw"></i> {{ site.data.workflow.team.slack }}</a></h4>{% endif %}
+  <hr>
+  <h2>Members <span class="badge">{{ site.data.workflow.team.members | size }}</span></h2>
+  <div class="row">
+    {% assign members = site.data.workflow.team.members | sort: "forename" %}
+    {% for member in members %}
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong><i class="fa fa-user fa-fw"></i> {{ member.forename }} {{ member.surname }}</strong></h3>
+          <h3 class="panel-title"><i class="fa fa-suitcase fa-fw"></i> {{ member.role }}</h3>
+        </div>
+        <div class="panel-body">
+          <h4><a href="mailto:{{ member.forename | downcase }}.{{ member.surname | downcase }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i></a>
+            {% if member.slack %}<a href="{{ site.slack_url }}@{{ member.slack }}"><i class="fa fa-slack fa-fw"></i></a>{% endif %}
+            {% if member.github %}<a href="{{ site.github_url }}{{ member.github }}"><i class="fa fa-github fa-fw"></i></a>{% endif %}
+            {% if member.trello %}<a href="{{ site.trello_url }}{{ member.trello }}"><i class="fa fa-trello fa-fw"></i></a>{% endif %}
+            {% if member.twitter %}<a href="{{ site.twitter_url }}{{ member.twitter }}"><i class="fa fa-twitter fa-fw"></i></a>{% endif %}</h4>
+          </div>
+        </div>
       </div>
-      <div class="panel-body">
-        <h4><a href="mailto:{{ member.forename | downcase }}.{{ member.surname | downcase }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i></a>
-        {% if member.github %}<a href="{{ site.github_url }}{{ member.github }}"><i class="fa fa-github fa-fw"></i></a>{% endif %}
-        {% if member.slack %}<a href="{{ site.slack_url }}@{{ member.slack }}"><i class="fa fa-slack fa-fw"></i></a>{% endif %}
-        {% if member.twitter %}<a href="{{ site.twitter_url }}{{ member.twitter }}"><i class="fa fa-twitter fa-fw"></i></a>{% endif %}</h4>
-      </div>
+      {% endfor %}
+    </div>
+  <div class="row">
+    <div class="col-md-12 table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th><i class="fa fa-user fa-fw"></i> Name</th>
+          <th><i class="fa fa-suitcase fa-fw"></i> Role</th>
+          <th><i class="fa fa-envelope fa-fw"></i> Email</th>
+          <th><i class="fa fa-slack fa-fw"></i> Slack</th>
+          <th><i class="fa fa-github fa-fw"></i> GitHub</th>
+          <th><i class="fa fa-trello fa-fw"></i> Trello</th>
+          <th><i class="fa fa-twitter fa-fw"></i> Twitter</th>
+        </tr>
+        {% assign members = site.data.workflow.team.members | sort: "forename" %}
+        {% for member in members %}
+        <tr>
+          <td>{{ member.forename }} {{ member.surname }}</td>
+          <td>{{ member.role }}</td>
+          <td><a href="mailto:{{ member.forename | downcase }}.{{ member.surname | downcase }}{{ site.email_domain }}">{{ member.forename | downcase }}.{{ member.surname | downcase }}{{site.email_domain}}</a></td>
+          <td>{% if member.slack %}<a href="{{ site.slack_url }}@{{ member.slack }}">{{ member.slack }}</a>{% endif %}</td>
+          <td>{% if member.github %}<a href="{{ site.github_url }}{{ member.github }}">{{ member.github }}</a>{% endif %}</td>
+          <td>{% if member.trello %}<a href="{{ site.trello_url }}{{ member.trello }}">{{ member.trello }}</a>{% endif %}</td>
+          <td>{% if member.twitter %}<a href="{{ site.twitter_url }}{{ member.twitter }}">{{ member.twitter }}</a>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </table>
     </div>
   </div>
-  {% endfor %}
-</div>
