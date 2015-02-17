@@ -21,10 +21,10 @@ permalink: /workflow/workflow_main/
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><strong><i class="fa fa-user fa-fw"></i> {{ member.forename }} {{ member.surname }}</strong></h3>
+          <h3 class="panel-title"><a data-toggle="collapse" href="#{{ member.forename }}{{ member.surname }}" aria-expanded="false" aria-controls="{{ member.forename }}{{ member.surname }}"><strong><i class="fa fa-user fa-fw"></i> {{ member.forename }} {{ member.surname }}</strong></a></h3>
           <h3 class="panel-title"><i class="fa fa-suitcase fa-fw"></i> {{ member.role }}</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body collapse" id="{{ member.forename }}{{ member.surname }}">
           <h4><a href="mailto:{{ member.forename | downcase }}.{{ member.surname | downcase }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i></a>
             {% if member.slack %}<a href="{{ site.slack_url }}@{{ member.slack }}"><i class="fa fa-slack fa-fw"></i></a>{% endif %}
             {% if member.github %}<a href="{{ site.github_url }}{{ member.github }}"><i class="fa fa-github fa-fw"></i></a>{% endif %}
@@ -35,6 +35,7 @@ permalink: /workflow/workflow_main/
       </div>
       {% endfor %}
     </div>
+    <hr>
   <div class="row">
     <div class="col-md-12 table-responsive">
       <table class="table table-striped">
