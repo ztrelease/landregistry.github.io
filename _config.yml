@@ -12,6 +12,8 @@ twitter_url: https://twitter.com/
 slack_url: https://landregistry.slack.com/messages/
 trello_url: https://trello.com/
 
+gems:
+  - jekyll-sitemap
 
 
 # Build settings
