@@ -1,0 +1,85 @@
+"team": {
+  "name": "Casework Team",
+  "project": "P336 Casework Team",
+  "phase": "Discovery",
+  "email": "casework-team",
+  "slack": "casework-charges",
+  "members": [
+    {
+      "forename": "Carrie",
+      "surname": "Sutton",
+      "role": "Developer/Test Analyst",
+      "email": "carrie.sutton",
+      "github": "Carrie1910",
+      "slack": "carrie191"
+    },
+    {
+      "forename": "Adrian",
+      "surname": "Bassett",
+      "role": "Delivery Manager",
+      "email": "adrian.bassett",
+      "slack": "adrianb"
+    },
+    {
+      "forename": "Allison",
+      "surname": "Queen",
+      "role": "Developer/Test Analyst",
+      "email": "allison.queen",
+      "github": "AllisonQ",
+      "slack": "Allison Queen"
+    },
+    {
+      "forename": "Shaun",
+      "surname": "Ewings",
+      "role": "Product Owner",
+      "email": "shaun.ewings",
+      "slack": "shaun.ewings"
+    },
+    {
+      "forename": "Terri",
+      "surname": "Easton",
+      "role": "Business Analyst",
+      "email": "terri.easton",
+      "slack": "terrieaston"
+    },
+    {
+      "forename": "Neil",
+      "surname": "Butler",
+      "role": "Developer",
+      "email": "neil.butler",
+      "github": "neilbutler",
+      "slack": "neilbutler"
+    },
+    {
+      "forename": "Simon",
+      "surname": "Tsang",
+      "role": "Developer/Scrum Master",
+      "email": "simon.tsang",
+      "github": "tsangsimon",
+      "slack": "simontsang"
+    },
+    {
+      "forename": "Andy",
+      "surname": "Warren",
+      "role": "Developer",
+      "email": "andy.warren",
+      "github": "llamacomedian",
+      "slack": "andywarren"
+    },
+    {
+      "forename": "Andy",
+      "surname": "Porter",
+      "role": "User Researcher",
+      "email": "andy.porter",
+      "github": "AndyPorter",
+      "slack": "andyporter"
+    },
+    {
+      "forename": "John",
+      "surname": "Beale",
+      "role": "User Researcher",
+      "email": "john.beale",
+      "slack": "johnb"
+    },
+  ]
+}

@@ -1,0 +1,44 @@
+---
+layout: dynamic_navbar_footer
+title: What is the Casework project?
+permalink: /casework/casework_team/
+---
+
+<h1><i class="fa fa-users fa-fw"></i> {{ site.data.casework.team.name }}</h1>
+<h4>Project: {{ site.data.casework.team.project }}</h4>
+<h4>Phase: {% case site.data.casework.team.phase %}
+  {% when 'Discovery' %}<span class="label label-danger">{{ site.data.casework.team.phase }}</span>
+  {% when 'Alpha' %} <span class="label label-warning">{{ site.data.casework.team.phase }}</span>
+  {% when 'Beta' %} <span class="label label-primary">{{ site.data.casework.team.phase }}</span>
+  {% when 'Live' %} <span class="label label-success">{{ site.data.casework.team.phase }}</span>
+  {% endcase %}</h4>
+  {% if site.data.casework.team.email %}<h4>Team Email: <a href="mailto:{{ site.data.casework.team.email }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i> {{ site.data.casework.team.email }}</a></h4>{% endif %}
+  {% if site.data.casework.team.slack %}<h4>Team Slack: <a href="{{ site.slack_url }}{{ site.data.casework.team.slack }}"><i class="fa fa-slack fa-fw"></i> {{ site.data.casework.team.slack }}</a></h4>{% endif %}
+  <hr>
+  <h2>Members <span class="badge">{{ site.data.casework.team.members | size }}</span></h2>
+  <div class="row">
+    {% assign members = site.data.casework.team.members | sort: "forename" %}
+    {% for member in members %}
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading" style="height:65px" >
+          <div>
+            <h3 class="panel-title"><strong><i class="fa fa-user fa-fw"></i>
+              {{ member.forename }} {{ member.surname }} </strong>
+              <img src="/images/photo-{{ member.forename }}-{{ member.surname }}.jpg" height="45" align="right">
+            </h3>
+          </div>
+          <h3 class="panel-title"><i class="fa fa-suitcase fa-fw"></i> {{ member.role }}</h3>
+        </div>
+        <div class="panel-body">
+          <h4><a href="mailto:{{ member.forename | downcase }}.{{ member.surname | downcase }}{{ site.email_domain }}"><i class="fa fa-envelope fa-fw"></i></a>
+            {% if member.github %}<a href="{{ site.github_url }}{{ member.github }}"><i class="fa fa-github fa-fw"></i></a>{% endif %}
+            {% if member.slack %}<a href="{{ site.slack_url }}@{{ member.slack }}"><i class="fa fa-slack fa-fw"></i></a>{% endif %}
+            {% if member.twitter %}<a href="{{ site.twitter_url }}{{ member.twitter }}"><i class="fa fa-twitter fa-fw"></i></a>{% endif %}</h4>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <a href="/team/adrianb" target="/team/adrianb" class="member_preview_link member_image thumb_192" data-member-id="U02DFMCRU" data-thumb-size="72" style="background-image: url(https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2014-07-14/2457747608_192.jpg);" aria-hidden="true"></a>
