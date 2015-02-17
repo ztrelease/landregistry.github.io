@@ -1,6 +1,6 @@
 Land Registry Digital Service Website
 ========================
-[![Build Status](https://travis-ci.org/LandRegistry/landregistry.github.io.svg?branch=htmlproof-travis)](https://travis-ci.org/LandRegistry/landregistry.github.io)
+[![Build Status](https://travis-ci.org/LandRegistry/landregistry.github.io.svg?branch=master)](https://travis-ci.org/LandRegistry/landregistry.github.io)
 
 Overview for the Land Registry digital service teams: http://www.landregistryconcept.co.uk
 
