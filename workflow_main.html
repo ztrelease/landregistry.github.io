@@ -18,7 +18,7 @@ permalink: /workflow/workflow_main/
   <div class="row">
     {% assign members = site.data.workflow.team.members | sort: "forename" %}
     {% for member in members %}
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
       <div class="panel panel-default">
         {% if member.image_url %}<a href="{{ member.image_url }}"><img src="{{ member.image_url }}" class="img-rounded pull-left" alt="Member image" height="54"></a>{% endif %}
         <div class="panel-heading">
