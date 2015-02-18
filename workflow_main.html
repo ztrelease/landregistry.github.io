@@ -20,6 +20,7 @@ permalink: /workflow/workflow_main/
     {% for member in members %}
     <div class="col-md-3">
       <div class="panel panel-default">
+        {% if member.image_url %}<a href="{{ member.image_url }}"><img src="{{ member.image_url }}" class="img-rounded pull-left" alt="Member image" height="54"></a>{% endif %}
         <div class="panel-heading">
           <h3 class="panel-title"><strong><i class="fa fa-user fa-fw"></i> {{ member.forename }} {{ member.surname }}</strong></h3>
           <h3 class="panel-title"><i class="fa fa-suitcase fa-fw"></i> {{ member.role }}</h3>
